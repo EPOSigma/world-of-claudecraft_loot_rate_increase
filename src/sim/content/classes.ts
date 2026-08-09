@@ -1852,10 +1852,10 @@ export const ABILITIES: Record<string, AbilityDef> = {
     range: 30,
     school: 'arcane',
     requiresTarget: true,
-    effects: [{ type: 'directDamage', min: 8, max: 8 }], // per missile
+    effects: [{ type: 'directDamage', min: 12, max: 12 }], // per missile
     ranks: [
-      { rank: 2, level: 14, cost: 75, effects: [{ type: 'directDamage', min: 14, max: 14 }] },
-      { rank: 3, level: 20, cost: 105, effects: [{ type: 'directDamage', min: 22, max: 22 }] },
+      { rank: 2, level: 14, cost: 75, effects: [{ type: 'directDamage', min: 21, max: 21 }] },
+      { rank: 3, level: 20, cost: 105, effects: [{ type: 'directDamage', min: 32, max: 32 }] },
     ],
     description:
       'Launches Aether Darts at the enemy, causing $d Arcane damage each second for 3 sec.',
@@ -2472,9 +2472,13 @@ export const ABILITIES: Record<string, AbilityDef> = {
     // Low base damage (DERIVED via tests/chronomancy_balance.test.ts): the
     // conservative rotation must sustain clearly under Piro/Cryo (>=35% below);
     // the payoff is ramping it with charges (and the Echo healing it feeds).
-    effects: [{ type: 'directDamage', min: 10, max: 13 }],
+    effects: [{ type: 'directDamage', min: 20, max: 26 }],
+    ranks: [
+      { rank: 2, level: 14, cost: 21, effects: [{ type: 'directDamage', min: 54, max: 64 }] },
+      { rank: 3, level: 20, cost: 27, effects: [{ type: 'directDamage', min: 84, max: 98 }] },
+    ],
     description:
-      "Draws a surge of raw aether through the enemy for $d damage. Each cast leaves an Arcane Charge that raises your next Aether Surge's damage and cast speed (5% faster each) but sharply raises its mana cost, stacking up to 4; Aether Darts spends the charges. Each cast can also arm Aether Rush, making your next Aether Surge free and twice as fast to cast.",
+      "Draws a surge of raw aether through the enemy for $d damage. Each cast leaves an Arcane Charge that raises your next Aether Surge's damage (20% faster each) but sharply raises its mana cost, stacking up to 3; Aether Darts spends the charges. Each cast can also arm Aether Rush, making your next Aether Surge free and twice as fast to cast.",
   },
   ice_barrier: {
     id: 'ice_barrier',
