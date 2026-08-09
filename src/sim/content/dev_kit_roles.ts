@@ -82,9 +82,7 @@ export const DEV_KIT_ROLES: Readonly<Record<PlayerClass, readonly DevKitRole[]>>
     { spec: 'restoration', weights: HEALER, melee: false, hands: 'shield' },
   ],
   mage: [
-    // Declared HEALER in talents.ts (this game's arcane mage heals), so it is
-    // weighted as one. Not a mistake, and not the genre default.
-    { spec: 'arcane', weights: HEALER, melee: false },
+    { spec: 'arcane', weights: CASTER, melee: false },
     { spec: 'fire', weights: CASTER, melee: false },
     { spec: 'frost', weights: CASTER, melee: false },
   ],
