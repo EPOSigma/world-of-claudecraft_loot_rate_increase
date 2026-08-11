@@ -2408,7 +2408,7 @@ export const ABILITIES: Record<string, AbilityDef> = {
     specs: ['arcane'],
     cost: 0,
     castTime: 0,
-    cooldown: 120,
+    cooldown: 90,
     offGcd: true,
     range: 0,
     school: 'arcane',
