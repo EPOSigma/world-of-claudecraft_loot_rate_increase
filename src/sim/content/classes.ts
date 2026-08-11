@@ -2131,12 +2131,11 @@ export const ABILITIES: Record<string, AbilityDef> = {
     range: 30,
     school: 'arcane',
     requiresTarget: true,
-    targetType: 'friendly',
     effects: [
       {
         type: 'absorb',
         amount: 55,
-        duration: 10,
+        duration: 60,
         spellPowerCoeff: MAGE_TEMPORAL_BARRIER_SPELL_POWER_COEFF,
       },
     ],
@@ -2149,7 +2148,7 @@ export const ABILITIES: Record<string, AbilityDef> = {
           {
             type: 'absorb',
             amount: 100,
-            duration: 10,
+            duration: 60,
             spellPowerCoeff: MAGE_TEMPORAL_BARRIER_SPELL_POWER_COEFF,
           },
         ],
@@ -2162,14 +2161,14 @@ export const ABILITIES: Record<string, AbilityDef> = {
           {
             type: 'absorb',
             amount: 160,
-            duration: 10,
+            duration: 60,
             spellPowerCoeff: MAGE_TEMPORAL_BARRIER_SPELL_POWER_COEFF,
           },
         ],
       },
     ],
     description:
-      'Shifts the target a heartbeat out of the present, a temporal shell absorbing $d damage for 10 sec before the timeline snaps back.',
+      'Shifts yourself a heartbeat out of the present, a temporal shell absorbing $d damage for 10 sec before the timeline snaps back.',
   },
   // ---- Chronomancy (healer) Phase 2: Temporal Echo, docs/prd/mage-chronomancy.md
   // section 13. Instant, on the GCD, no cooldown. A small initial heal (the sibling
