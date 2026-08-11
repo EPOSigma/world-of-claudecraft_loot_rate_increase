@@ -2716,7 +2716,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '将附近所有敌人冻结在原地，最多持续 8 秒，并造成 {damage} 点冰霜伤害。定身效果会在累计受到相当于目标最大生命值15%的伤害后解除，伤害阈值最低为20点，最高为60点。',
   'entities.abilities.arcane_explosion.name': '以太爆发',
   'entities.abilities.arcane_explosion.description':
-    '奥术能量爆发，对附近所有敌人造成 {damage} 点奥术伤害。',
+    '奥术能量爆发，对附近所有敌人造成 {damage} 点奥术伤害。每次施放都会留下奥术充能。',
   'entities.abilities.scorch.name': '灼烫',
   'entities.abilities.scorch.description': '灼烧敌人，造成 {damage} 点火焰伤害。施法迅速。',
   'entities.abilities.pyroblast.name': '烈焰长矛',
@@ -9373,7 +9373,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '抓住完美时刻：立即获得 4 层奥术充能，并且在 10 秒内，以太飞矢不会消耗这些充能。（时光术）',
   'entities.abilities.arcane_surge.name': '以太涌动',
   'entities.abilities.arcane_surge.description':
-    '以原始奥术能量冲击敌人，造成 {damage} 点伤害。每次施放都会留下奥术充能，使你的下一次以太涌动伤害提高、施法加快（每层快 5%），但法力消耗也会急剧提高，最多叠加 4 层；以太飞矢会消耗这些充能。每次施放还有机会触发以太奔流，使你的下一次以太涌动不消耗法力且施法速度翻倍。',
+    '以原始奥术能量冲击敌人，造成 {damage} 点伤害。每次施放都会留下奥术充能，使你的下一次以太涌动伤害提高（每层 20%），但法力消耗也会急剧提高，最多叠加 3 层；以太飞矢会消耗这些充能。每次施放还有机会触发以太奔流，使你的下一次以太涌动不消耗法力且施法速度翻倍。',
   'entities.items.conjured_bread4.name': '魔法盛宴面包',
   'entities.items.conjured_water4.name': '魔法泉水',
   'entities.abilities.blazing_barrier.name': '炽热屏障',
