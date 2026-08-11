@@ -340,8 +340,8 @@ const ARCANE_SURGE_NAME = ABILITIES[ARCANE_SURGE_ID]?.name ?? 'Aether Surge';
 // record; it is DERIVED via tests/chronomancy_balance.test.ts to land the
 // conservative rotation near 70-80s to OOM at the real level-20 pool.
 export const AETHER_SURGE_MAX_CHARGES = 4;
-export const AETHER_SURGE_DMG_PER_CHARGE = 0.3; // +30% damage per charge (linear, moderate)
-export const AETHER_SURGE_COST_PER_CHARGE = 1.0; // x2 cost per charge (geometric: each charge DOUBLES the cost)
+export const AETHER_SURGE_DMG_PER_CHARGE = 0.2; // +20% damage per charge (linear, moderate)
+export const AETHER_SURGE_COST_PER_CHARGE = 0.5; // x1.5 cost per charge (geometric: each charge DOUBLES the cost)
 export const AETHER_SURGE_CHARGE_WINDOW = 10; // seconds, refreshed on each cast
 // Aether Darts dump: a flat Arcane bonus of 9 per consumed charge, split evenly
 // across the channel's missiles (36 total at 4 charges, +12 per missile over 3).
@@ -350,7 +350,7 @@ export const AETHER_DARTS_BONUS_PER_CHARGE = 9;
 // Full-charge barrage (owner 2026-07-12): at MAX Arcane Charges, Aether Darts fires
 // this many missiles instead of the ability's default 3, in the same channel time
 // (more base hits + more Echo conversion). Below max charges it stays the default.
-export const AETHER_DARTS_FULL_CHARGE_MISSILES = 5;
+export const AETHER_DARTS_FULL_CHARGE_MISSILES = 6;
 // Free-cast proc (owner 2026-07-12): each Aether Surge has a chance to make the
 // NEXT Aether Surge cost no mana. Softens the escalating mana wall and rewards
 // staying on the spender. Provisional chance; the free window is generous so a
@@ -367,10 +367,10 @@ const AETHER_SURGE_FREE_ID = 'aether_surge_free';
 //  - Each held Arcane Charge trims 5% (max 4 charges => a 20% faster cast), a haste
 //    ramp that pairs with the escalating cost.
 //  - While the free-cast proc (Aether Rush) is armed, the cast is 2x faster (x0.5),
-//    so the proc is felt in the cast bar, not just the mana bar. Stacks with the
+//    so the proc is felt in the cast bar, not just the mana bar. --delete--Stacks with the
 //    charge ramp (4 charges + proc: 0.8 * 0.5 = 0.4x, a 2s cast in 0.8s).
 // Draws no rng and touches no other ability, so parity goldens are unaffected.
-export const AETHER_SURGE_CAST_HASTE_PER_CHARGE = 0.05;
+export const AETHER_SURGE_CAST_HASTE_PER_CHARGE = 0;
 export const AETHER_SURGE_PROC_CAST_MULT = 0.5;
 
 function aetherSurgeAura(e: Entity): Aura | undefined {
@@ -383,14 +383,14 @@ export function aetherSurgeStacks(e: Entity): number {
 }
 
 /** Cost multiplier for the NEXT Aether Surge, from the charges held right now.
- *  Geometric (x2 per charge) so four charges cost 16x the base: the mana wall
+ *  Geometric (x1.5 per charge) so four charges cost 16x the base: the mana wall
  *  that makes holding a full stack a short emergency window, not a rotation. */
 export function aetherSurgeCostMult(e: Entity): number {
   return (1 + AETHER_SURGE_COST_PER_CHARGE) ** aetherSurgeStacks(e);
 }
 
 /** Damage multiplier for THIS Aether Surge, from the charges held right now.
- *  Linear (+30% per charge): moderate, so the extra Echo healing it feeds grows
+ *  Linear (+20% per charge): moderate, so the extra Echo healing it feeds grows
  *  gently while the cost climbs steeply. */
 export function aetherSurgeDamageMult(e: Entity): number {
   return 1 + AETHER_SURGE_DMG_PER_CHARGE * aetherSurgeStacks(e);
