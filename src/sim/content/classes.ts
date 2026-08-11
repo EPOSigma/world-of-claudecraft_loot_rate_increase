@@ -2130,7 +2130,7 @@ export const ABILITIES: Record<string, AbilityDef> = {
     cooldown: 12,
     range: 30,
     school: 'arcane',
-    requiresTarget: true,
+    requiresTarget: false,
     effects: [
       {
         type: 'absorb',
