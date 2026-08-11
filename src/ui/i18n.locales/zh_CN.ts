@@ -9373,7 +9373,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '抓住完美时刻：立即获得 4 层奥术充能，并且在 10 秒内，以太飞矢不会消耗这些充能。（时光术）',
   'entities.abilities.arcane_surge.name': '以太涌动',
   'entities.abilities.arcane_surge.description':
-    '以原始奥术能量冲击敌人，造成 {damage} 点伤害。每次施放都会留下奥术充能，使你的下一次以太涌动伤害提高（每层 20%），但法力消耗也会急剧提高，最多叠加 3 层；以太飞矢会消耗这些充能。每次施放还有机会触发以太奔流，使你的下一次以太涌动不消耗法力且施法速度翻倍。',
+    '以原始奥术能量冲击敌人，造成 {damage} 点伤害。每次施放都会留下奥术充能，使你的下一次以太涌动伤害提高（每层 20%），但法力消耗也会急剧提高，最多叠加 4 层；以太飞矢会消耗这些充能。每次施放还有机会触发以太奔流，使你的下一次以太涌动不消耗法力且施法速度翻倍。',
   'entities.items.conjured_bread4.name': '魔法盛宴面包',
   'entities.items.conjured_water4.name': '魔法泉水',
   'entities.abilities.blazing_barrier.name': '炽热屏障',
