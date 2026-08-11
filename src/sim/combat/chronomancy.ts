@@ -343,10 +343,8 @@ export const AETHER_SURGE_MAX_CHARGES = 4;
 export const AETHER_SURGE_DMG_PER_CHARGE = 0.2; // +20% damage per charge (linear, moderate)
 export const AETHER_SURGE_COST_PER_CHARGE = 0.5; // x1.5 cost per charge (geometric: each charge DOUBLES the cost)
 export const AETHER_SURGE_CHARGE_WINDOW = 10; // seconds, refreshed on each cast
-// Aether Darts dump: a flat Arcane bonus of 9 per consumed charge, split evenly
-// across the channel's missiles (36 total at 4 charges, +12 per missile over 3).
-// Owner tuning 2026-07-12: the discharge should hit a bit harder.
-export const AETHER_DARTS_BONUS_PER_CHARGE = 9;
+// Aether Darts dump: a flat Arcane bonus of 8 per consumed charge.
+export const AETHER_DARTS_BONUS_PER_CHARGE = 8;
 // Full-charge barrage (owner 2026-07-12): at MAX Arcane Charges, Aether Darts fires
 // this many missiles instead of the ability's default 3, in the same channel time
 // (more base hits + more Echo conversion). Below max charges it stays the default.
@@ -528,7 +526,7 @@ export function aetherDartsBoltBonus(ctx: SimContext, caster: Entity, ticks: num
     // Split across the ACTUAL missile count this channel (5 at full charge, else the
     // passed default), so the flat bonus total is unchanged regardless of barrage size.
     const bolts = caster.aetherDartsTicks || ticks;
-    caster.aetherDartsBonusPerBolt = bolts > 0 ? Math.round(total / bolts) : 0;
+    caster.aetherDartsBonusPerBolt = total;
   }
   return caster.aetherDartsBonusPerBolt ?? 0;
 }
