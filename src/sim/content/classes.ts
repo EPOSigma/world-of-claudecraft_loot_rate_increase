@@ -2416,7 +2416,7 @@ export const ABILITIES: Record<string, AbilityDef> = {
     requiresTarget: false,
     effects: [{ type: 'perfectMoment' }],
     description:
-      'Seize your perfect moment: instantly gain 4 Arcane Charges, and for 10 sec Aether Darts does not consume them. (Chronomancer)',
+      'Seize your perfect moment: instantly gain 3 Arcane Charges, and for 10 sec Aether Darts does not consume them. (Chronomancer)',
   },
   temporal_acceleration: {
     id: 'temporal_acceleration',
