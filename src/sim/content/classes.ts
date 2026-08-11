@@ -1934,8 +1934,12 @@ export const ABILITIES: Record<string, AbilityDef> = {
     range: 0,
     school: 'arcane',
     requiresTarget: false,
-    effects: [{ type: 'aoeDamage', min: 26, max: 31, radius: 10 }],
-    description: 'A burst of Arcane energy hits all nearby enemies for $d Arcane damage.',
+    effects: [{ type: 'aoeDamage', min: 26, max: 30, radius: 10 }],
+    ranks: [
+      { rank: 2, level: 14, cost: 60, effects: [{ type: 'directDamage', min: 36, max: 40 }] },
+      { rank: 3, level: 20, cost: 60, effects: [{ type: 'directDamage', min: 48, max: 52 }] },
+    ],
+    description: 'A burst of Arcane energy hits all nearby enemies for $d Arcane damage. Each cast leaves an Arcane Charge.',
   },
   // Ground-targeted (targetMode 'position'): the mage aims a patch of roaring flame
   // at a chosen spot within range, which burns enemies standing in it. The first
@@ -2478,7 +2482,7 @@ export const ABILITIES: Record<string, AbilityDef> = {
       { rank: 3, level: 20, cost: 27, effects: [{ type: 'directDamage', min: 84, max: 98 }] },
     ],
     description:
-      "Draws a surge of raw aether through the enemy for $d damage. Each cast leaves an Arcane Charge that raises your next Aether Surge's damage (20% faster each) but sharply raises its mana cost, stacking up to 3; Aether Darts spends the charges. Each cast can also arm Aether Rush, making your next Aether Surge free and twice as fast to cast.",
+      "Draws a surge of raw aether through the enemy for $d damage. Each cast leaves an Arcane Charge that raises your next Aether Surge's damage (20% each) but sharply raises its mana cost, stacking up to 3; Aether Darts spends the charges. Each cast can also arm Aether Rush, making your next Aether Surge free and twice as fast to cast.",
   },
   ice_barrier: {
     id: 'ice_barrier',
