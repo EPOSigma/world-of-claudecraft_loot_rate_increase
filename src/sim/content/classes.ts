@@ -2416,7 +2416,7 @@ export const ABILITIES: Record<string, AbilityDef> = {
     requiresTarget: false,
     effects: [{ type: 'perfectMoment' }],
     description:
-      'Seize your perfect moment: instantly gain 3 Arcane Charges, and for 10 sec Aether Darts does not consume them. (Chronomancer)',
+      'Seize your perfect moment: instantly gain 4 Arcane Charges, and for 10 sec Aether Darts does not consume them. (Chronomancer)',
   },
   temporal_acceleration: {
     id: 'temporal_acceleration',
@@ -2482,7 +2482,7 @@ export const ABILITIES: Record<string, AbilityDef> = {
       { rank: 3, level: 20, cost: 27, effects: [{ type: 'directDamage', min: 84, max: 98 }] },
     ],
     description:
-      "Draws a surge of raw aether through the enemy for $d damage. Each cast leaves an Arcane Charge that raises your next Aether Surge's damage (20% each) but sharply raises its mana cost, stacking up to 3; Aether Darts spends the charges. Each cast can also arm Aether Rush, making your next Aether Surge free and twice as fast to cast.",
+      "Draws a surge of raw aether through the enemy for $d damage. Each cast leaves an Arcane Charge that raises your next Aether Surge's damage (20% each) but sharply raises its mana cost, stacking up to 4; Aether Darts spends the charges. Each cast can also arm Aether Rush, making your next Aether Surge free and twice as fast to cast.",
   },
   ice_barrier: {
     id: 'ice_barrier',
