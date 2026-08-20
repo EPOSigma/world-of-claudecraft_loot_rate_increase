@@ -145,15 +145,15 @@ export const NORMAL_DUNGEON_TUNING: Record<string, NormalDungeonTuning> = {
     difficulty: 'normal',
     healthMultiplier: 2.0,
     damageMultiplierByMob: {
-      sanctum_boneguard: 3.8,
-      sanctum_drakonid: 3.7,
-      raised_bonewalker: 3.75,
-      korgath_the_bound: 9.5,
-      grand_necromancer_velkhar: 6.6,
-      korzul_the_gravewyrm: 8.5,
+      sanctum_boneguard: 1.9,
+      sanctum_drakonid: 1.85,
+      raised_bonewalker: 1.85,
+      korgath_the_bound: 4.75,
+      grand_necromancer_velkhar: 3.3,
+      korzul_the_gravewyrm: 4.25,
     },
     mechanicDamageMultiplierByMob: {
-      korzul_the_gravewyrm: 15,
+      korzul_the_gravewyrm: 7.5,
     },
   },
   nythraxis_boss_arena: {
@@ -161,8 +161,8 @@ export const NORMAL_DUNGEON_TUNING: Record<string, NormalDungeonTuning> = {
     difficulty: 'normal',
     healthMultiplier: 2.0,
     damageMultiplierByMob: {
-      nythraxis_scourge_of_thornpeak: 5,
-      nythraxis_skeleton_warrior: 5,
+      nythraxis_scourge_of_thornpeak: 2.5,
+      nythraxis_skeleton_warrior: 2.5,
     },
   },
   // Wildheart Basin shipped with a heroic record but NO normal one, so its
@@ -202,15 +202,15 @@ export const NORMAL_DUNGEON_TUNING: Record<string, NormalDungeonTuning> = {
     difficulty: 'normal',
     healthMultiplier: 2.0,
     damageMultiplierByMob: {
-      wildheart_stalker: 3.7,
-      wildheart_ravager: 3.15,
-      wildheart_hexcaller: 3.9,
-      wildheart_beastmaster: 4.2,
-      wildheart_high_priest: 5.65,
+      wildheart_stalker: 1.85,
+      wildheart_ravager: 1.55,
+      wildheart_hexcaller: 1.95,
+      wildheart_beastmaster: 2.1,
+      wildheart_high_priest: 2.85,
     },
     rangedDamageMultiplierByMob: {
-      wildheart_stalker: 2.7,
-      wildheart_hexcaller: 2.5,
+      wildheart_stalker: 1.35,
+      wildheart_hexcaller: 1.25,
     },
   },
 };
@@ -221,10 +221,10 @@ export const HEROIC_DUNGEON_TUNING: Record<string, HeroicDungeonTuning> = {
     difficulty: 'heroic',
     level: 22,
     healthMultiplier: 3.8,
-    damageMultiplier: 20,
+    damageMultiplier: 10,
     // No hollow_crypt boss summons adds; inert, but rides the v0.30 40% add
     // nerf with the other heroics so a future summoner starts on-model.
-    addDamageMultiplier: 6,
+    addDamageMultiplier: 3,
     armorMultiplier: 1.3,
     finalBossId: 'morthen',
     marksPerParticipant: 1,
@@ -234,12 +234,12 @@ export const HEROIC_DUNGEON_TUNING: Record<string, HeroicDungeonTuning> = {
     difficulty: 'heroic',
     level: 22,
     healthMultiplier: 4.0,
-    damageMultiplier: 18,
+    damageMultiplier: 9,
     // Vael's drowned_thrall summons are non-elite. v0.30: boss-summoned adds
     // hit 40% softer across every heroic five-man (the 250 floor drops to
     // 150); a tanked triple wave stacked on the boss was still overwhelming
     // healers after the 2026-07 retune.
-    addDamageMultiplier: 9.75,
+    addDamageMultiplier: 5,
     armorMultiplier: 1.3,
     finalBossId: 'vael_the_mistcaller',
     marksPerParticipant: 1,
@@ -249,10 +249,10 @@ export const HEROIC_DUNGEON_TUNING: Record<string, HeroicDungeonTuning> = {
     difficulty: 'heroic',
     level: 22,
     healthMultiplier: 5.2,
-    damageMultiplier: 16.5,
+    damageMultiplier: 8.25,
     // Ysolei's moonspawn summons are non-elite; 40% add nerf (v0.30), the
     // summoned floor drops from 250 to 150.
-    addDamageMultiplier: 9.15,
+    addDamageMultiplier: 4.55,
     armorMultiplier: 1.25,
     finalBossId: 'ysolei',
     marksPerParticipant: 1,
@@ -262,17 +262,17 @@ export const HEROIC_DUNGEON_TUNING: Record<string, HeroicDungeonTuning> = {
     difficulty: 'heroic',
     level: 22,
     healthMultiplier: 4.0,
-    damageMultiplier: 15.5,
+    damageMultiplier: 7.25,
     // Velkhar's raised_bonewalker summons are non-elite; 40% add nerf
     // (v0.30), the summoned floor drops from 250 to 150.
-    addDamageMultiplier: 8.55,
+    addDamageMultiplier: 4.3,
     // The Sanctum bosses must out-hit their retuned NORMAL selves (normal
     // floors them at 200-301 post-mitigation since the v0.30 fresh-group
     // pressure pass): 19x lands 652-708, comfortably above.
     damageMultiplierByMob: {
-      korgath_the_bound: 19,
-      grand_necromancer_velkhar: 19,
-      korzul_the_gravewyrm: 19,
+      korgath_the_bound: 9.5,
+      grand_necromancer_velkhar: 9.5,
+      korzul_the_gravewyrm: 9.5,
     },
     armorMultiplier: 1.2,
     finalBossId: 'korzul_the_gravewyrm',
@@ -288,9 +288,9 @@ export const HEROIC_DUNGEON_TUNING: Record<string, HeroicDungeonTuning> = {
     // Solved at the basin's weakest spawn-list mob (wildheart_hexcaller,
     // 455 post-mitigation at 15.5x): the open-field roster sits between
     // Orkadia's casters and the Sanctum band.
-    damageMultiplier: 17.25,
+    damageMultiplier: 8.65,
     // No Wildheart boss summons adds; kept at the half convention, inert.
-    addDamageMultiplier: 8.625,
+    addDamageMultiplier: 4.3,
     armorMultiplier: 1.2,
     finalBossId: 'wildheart_high_priest',
     marksPerParticipant: 1,
@@ -318,19 +318,19 @@ export const HEROIC_DUNGEON_TUNING: Record<string, HeroicDungeonTuning> = {
     // at 1000 the bench raid reaches phase 2 at 46-60% boss with worst-case
     // scripted play. Further nerfs, if live raids still cannot clear, come
     // as a morning hotfix from HERE, not from 1200.
-    damageMultiplier: 7.25,
+    damageMultiplier: 3.65,
     // The raid's add waves spawn through the encounter script
     // (encounters/nythraxis.ts), never spawnBossAdds, so this field is inert
     // there; it mirrors damageMultiplier to state that nothing is softened.
-    addDamageMultiplier: 7.25,
+    addDamageMultiplier: 3.65,
     // 2026-07 retune: the raid's add waves drop from the five-man 500 line to
     // the summoned 250 floor; their mechanics (Malric's ramping boss heal,
     // Aldren's cleave, Voss's taunt immunity) stay the real threat.
     damageMultiplierByMob: {
-      nythraxis_skeleton_warrior: 3.75,
-      nythraxis_heroic_warrior_add: 3.75,
-      nythraxis_heroic_priest_add: 8,
-      nythraxis_heroic_rogue_add: 6,
+      nythraxis_skeleton_warrior: 1.85,
+      nythraxis_heroic_warrior_add: 1.85,
+      nythraxis_heroic_priest_add: 4,
+      nythraxis_heroic_rogue_add: 3,
     },
     // Skeleton waves at 1.2x their NORMAL-mode pool (3,768 vs 3,137): phase 1
     // must stop out-massing the boss (a six-wave phase 1 at the raid-wide 3.2x
@@ -338,7 +338,7 @@ export const HEROIC_DUNGEON_TUNING: Record<string, HeroicDungeonTuning> = {
     // trio deliberately keeps the full 3.2x: measured off the critical path,
     // and its respawn gate (only after the previous court dies) self-limits.
     healthMultiplierByMob: {
-      nythraxis_skeleton_warrior: 2.22,
+      nythraxis_skeleton_warrior: 1.15,
     },
     armorMultiplier: 1.2,
     finalBossId: 'nythraxis_scourge_of_thornpeak',
