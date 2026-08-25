@@ -7,8 +7,8 @@ import type { ArenaFormat, HonorArenaDailyState, HonorReason } from '../types';
 import { doubleHonorActive, honorEventMultiplier } from './honor_event';
 
 export const RANKED_ARENA_WIN_HONOR = {
-  '1v1': 25,
-  '2v2': 50,
+  '1v1': 50,
+  '2v2': 100,
 } as const;
 
 // What a ranked bout pays the side that did not win: one third of the bracket's
@@ -28,15 +28,15 @@ export const RANKED_ARENA_WIN_HONOR = {
 // completions. Each pairing pays a player at most one win plus one loss per UTC
 // day (ARENA_REPEAT_DR zeroes the rest on both counters), so two accounts trading
 // wins are capped at exactly what one honest bout against a new opponent pays.
-export const ARENA_LOSS_HONOR_SHARE = 1 / 3;
+export const ARENA_LOSS_HONOR_SHARE = 1 / 2;
 export const RANKED_ARENA_LOSS_HONOR = {
   '1v1': Math.round(RANKED_ARENA_WIN_HONOR['1v1'] * ARENA_LOSS_HONOR_SHARE),
   '2v2': Math.round(RANKED_ARENA_WIN_HONOR['2v2'] * ARENA_LOSS_HONOR_SHARE),
 } as const;
 
-export const FIESTA_KILL_HONOR = 20;
-export const FIESTA_COMPLETION_HONOR = 20;
-export const FIESTA_WIN_BONUS_HONOR = 40;
+export const FIESTA_KILL_HONOR = 40;
+export const FIESTA_COMPLETION_HONOR = 40;
+export const FIESTA_WIN_BONUS_HONOR = 80;
 // Thornhollow Fields 5v5 capture-the-flag. A win pays more than a 2v2 win because a
 // full match is a 10-player, ~10-13 minute commitment; the loss award is a
 // completion consolation (a draw pays the loss amount to both sides). Both
@@ -46,16 +46,16 @@ export const FIESTA_WIN_BONUS_HONOR = 40;
 // one deliberate exception to the real-formulas rule, flagged in review):
 // sized against the arena payouts so a played-out battleground beats queue
 // value without dwarfing it. Revisit against live match data.
-export const BATTLEGROUND_WIN_HONOR = 60;
-export const BATTLEGROUND_LOSS_HONOR = 20;
+export const BATTLEGROUND_WIN_HONOR = 120;
+export const BATTLEGROUND_LOSS_HONOR = 40;
 // Per-kill honor, the classic battleground drip: a small, immediate "+N honor"
 // on every killing blow, so fighting away from the flag is still worth doing.
 // Deliberately small next to the result award (a 15-kill match pays about a
 // win) and decayed per REPEATED VICTIM on the same curve as everything else,
 // so farming one player in a graveyard pays out four times and then nothing.
 // An assist pays less than the blow, on its own separate victim counter.
-export const BATTLEGROUND_KILL_HONOR = 5;
-export const BATTLEGROUND_ASSIST_HONOR = 2;
+export const BATTLEGROUND_KILL_HONOR = 10;
+export const BATTLEGROUND_ASSIST_HONOR = 4;
 // The first Thornhollow Fields WIN of each UTC day pays a bonus on top of the
 // ordinary win award: the classic-era daily-battleground quest convention, where
 // the day's first win is the thing that gets a player to queue at all.
@@ -75,12 +75,12 @@ export const BATTLEGROUND_ASSIST_HONOR = 2;
 // in line with the delve daily (`meta.delveDaily.firstClearXp`,
 // src/sim/delves/runs.ts grantDelveClearTo), the one in-repo precedent, which
 // SWAPS one authored reward for another for a first/repeat ratio near 1.6x.
-export const BATTLEGROUND_FIRST_WIN_BONUS_HONOR = 20;
+export const BATTLEGROUND_FIRST_WIN_BONUS_HONOR = 40;
 
 // Arena is especially easy to coordinate in 1v1, so only the first win against
 // the same opponent/team pays each UTC day. Fiesta uses softer decay because its
 // takedown and completion rewards come from a longer, multi-kill match.
-export const ARENA_REPEAT_DR = [1, 0] as const;
+export const ARENA_REPEAT_DR = [1] as const;
 export const HONOR_REPEAT_DR = [1, 0.5, 0.25, 0] as const;
 // Thornhollow Fields RESULT honor only: its own curve, floored at 0.25 instead of
 // reaching 0. Deliberately NOT an edit to HONOR_REPEAT_DR above, which
@@ -185,8 +185,8 @@ export function arenaRepeatHonorMultiplier(previousAwards: number): number {
 
 function arenaDailyMultiplier(totalWins: number): number {
   if (totalWins < ARENA_DAILY_TAPER_START) return 1;
-  if (totalWins < ARENA_DAILY_TAPER_FLOOR_START) return 0.5;
-  return 0.25;
+  if (totalWins < ARENA_DAILY_TAPER_FLOOR_START) return 1;
+  return 1;
 }
 
 function dailyWindow(ctx: SimContext, meta: PlayerMeta) {
