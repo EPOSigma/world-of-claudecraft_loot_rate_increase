@@ -334,15 +334,11 @@ export const WILDHEART_MOBS: Record<string, MobTemplate> = {
       // Guaranteed uncommon (chances sum to 1.0, exactly one drops): the Korzul
       // korzul_guaranteed_uncommon pattern, one piece per armor class.
       { itemId: 'bloodmane_warleggings', chance: 0.34, rollGroup: 'zulgar_guaranteed_uncommon' },
-      {
-        itemId: 'vineclaw_stalking_breeches',
-        chance: 0.33,
-        rollGroup: 'zulgar_guaranteed_uncommon',
-      },
+      {itemId: 'vineclaw_stalking_breeches',chance: 0.33,rollGroup: 'zulgar_guaranteed_uncommon',},
       { itemId: 'sunbone_ritual_sarong', chance: 0.33, rollGroup: 'zulgar_guaranteed_uncommon' },
-      { itemId: 'wildheart_tuskblade', chance: 0.06, rollGroup: 'wildheart_bonus' },
-      { itemId: 'wildheart_hexwood_staff', chance: 0.06, rollGroup: 'wildheart_bonus' },
-      { itemId: 'wildheart_fangknife', chance: 0.06, rollGroup: 'wildheart_bonus' },
+      { itemId: 'wildheart_hexwood_staff', chance: 0.4, rollGroup: 'wildheart_bonus' },
+      { itemId: 'wildheart_tuskblade', chance: 0.3, rollGroup: 'wildheart_bonus' },
+      { itemId: 'wildheart_fangknife', chance: 0.3, rollGroup: 'wildheart_bonus' },
     ],
     scale: 2.8,
     color: 0x566f45,
