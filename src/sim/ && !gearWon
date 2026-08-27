@@ -222,7 +222,7 @@ export function rollWorldBossLoot(ctx: SimContext, mob: Entity, contributors: Pl
         for (const g of group) {
           cumulative += g.chance;
           if (roll < cumulative) {
-            if (g.itemId && !gearWon) {
+            if (g.itemId) {
               items.push({ itemId: g.itemId, count: 1, personalFor: [meta.entityId] });
               gearWon = true;
             }
